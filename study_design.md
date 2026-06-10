@@ -84,7 +84,32 @@ The study's "accessible and representative" mandate requires that the enrolled s
 
 **Mid-enrollment diversity review:** At week 4 (when approximately 50% of enrollment target is expected to be reached), the study coordinator reviews enrollment demographics against targets. If any target is tracking ≥5 percentage points below goal, targeted recruitment outreach is activated for that demographic segment before enrollment closes.
 
----
+  ### Device Access Policy / BYOD Contingency Plan
+
+  This study uses a **Bring Your Own Device (BYOD)** model: participants are expected to own a compatible consumer wearable (Pixel Watch Gen 2/3 or Fitbit Sense 2/Versa 4) at enrollment. Ownership of a compatible device is listed as an inclusion criterion.
+
+  The FDA 2023 DCT Guidance requires that sponsors using a BYOD model provide **alternative technological accommodations** so that lack of device access does not become a de facto exclusion criterion. Technology access must never function as an unfair screening barrier — particularly for populations the DCT model is specifically designed to reach.
+
+  **BYOD contingency plan:**
+
+  1. Eligible participants who meet all other inclusion criteria but do not own a compatible device at screening are offered a **loaner device** for the 30-day study duration, shipped directly to their home address with a prepaid return label
+  2. The **loaner device pool is set at 5% of enrollment target (25 devices)** — sufficient to accommodate expected BYOD-ineligible participants without materially changing study operations or logistics complexity
+  3. Loaner device recipients are enrolled under identical protocol conditions; device type is recorded as a stratification variable and included in subgroup analysis to detect any systematic performance differences between BYOD and loaner device cohorts
+  4. All loaner devices are pre-configured with the Health Studies app, firmware version-locked, and factory-reset between participants to eliminate cross-participant data contamination
+
+  **Loaner device logistics:**
+
+  | Parameter | Specification |
+  |---|---|
+  | Device pool size | 25 units (5% of 500-participant target) |
+  | Shipment method | Tracked mail, 2-day delivery; signature required |
+  | Return method | Prepaid return label included in shipment |
+  | Firmware version | Pre-configured and locked before shipment; matches BYOD participant firmware version |
+  | Data pipeline | Identical to BYOD participants — same Health Studies app, same sync process, same processing pipeline |
+
+  **Health equity rationale:** The BYOD contingency plan specifically enables enrollment of lower-income participants and non-urban populations — demographics that are systematically underrepresented in academic clinical trials but are core to the study's "accessible and representative" mandate. The operational complexity of managing 25 provisioned devices is justified by the diversity targets it enables: without this accommodation, the device ownership requirement would disproportionately screen out the same populations the DCT model is designed to include.
+
+  ---
 
 ## Section 3 — Decentralized Operations
 
@@ -127,8 +152,22 @@ The consent process is fully app-based and designed in compliance with FDA 2023 
 - Estimated completion time: 3–4 minutes
 - Completion required for $50 completion incentive eligibility
 
-### Remote Monitoring Protocol (No Site Visits)
+### Remote Monitoring Protocol / Risk-Based Monitoring (RBM)
 
+**Risk-Based Monitoring (RBM)** is the FDA-endorsed approach to trial oversight that replaces traditional on-site Source Data Verification (SDV) with centralized, data-driven monitoring. In a fully decentralized trial context, there are no site visits — RBM is not merely preferred, it is the only viable monitoring methodology.
+
+  This study implements RBM through a **statistical threshold-based trigger system**: rather than scheduling monitoring visits at fixed intervals, the system continuously analyzes participant data streams for patterns indicating data quality risk — completeness thresholds, sync failure patterns, and demographic enrollment drift. Monitoring action is triggered by data anomalies, not by calendar.
+
+  The **Principal Investigator (PI) retains ultimate accountability** for all data and remote participants per ICH-GCP E6(R3) §4.2 and the FDA 2023 DCT Guidance — the automated RBM system does not replace investigator oversight, it protects it by surfacing anomalies that require PI-level review before they affect data integrity at scale.
+
+  **PI accountability workflow:**
+  - **Tier 1 and Tier 2 triggers** are handled automatically with no human action required; the system documents trigger events and automated responses in the audit log
+  - **Tier 3 triggers** require study coordinator action within 1 business day of trigger; coordinator documents action taken and outcome
+  - Any **Tier 3 trigger unresolved within 5 business days**, or any data integrity issue affecting **>5% of enrolled participants**, automatically escalates to the PI for review and documented decision — ensuring the PI maintains meaningful oversight across all 500 participants without requiring manual review of routine monitoring events
+
+  > **Future iteration note:** Automated AI triaging tools — such as conversational health AI agents — could handle routine participant check-ins at Tier 1, provided the escalation logic ensures all flagged anomalies route to the PI rather than being resolved autonomously. This architecture would reduce coordinator burden while preserving investigator accountability as a hard constraint, not a design preference.
+
+  
 Automated monitoring runs daily against participant data. Three trigger tiers:
 
 **Tier 1 — Automated re-engagement nudge (no coordinator action):**
