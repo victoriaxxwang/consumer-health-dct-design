@@ -59,9 +59,31 @@
 - **Research dataset refresh:** Hourly batch updates from processing pipeline to BigQuery
 - **Data quality dashboard:** Updated hourly from research dataset
 
----
 
-## 2. Data Inventory
+## 1.5 — Electronic Anchor Site Designation (21 CFR Part 11 / FDA 2023 DCT Guidance)
+
+  The FDA 2023 DCT Guidance mandates that even fully remote, paperless trials must designate a single, auditable electronic **anchor site** — a centralized location where all electronic records, source data, and audit logs are accessible to FDA inspectors on demand. This requirement does not presuppose a physical facility; in a DCT context, the anchor site is an electronic infrastructure designation, not a geographic one.
+
+  In this study, the anchor site function is fulfilled by **Google Cloud**:
+
+  - **Google Cloud Storage** (raw data bucket with versioning and deletion protection enabled) serves as the source data repository — the authoritative, immutable record of all participant data as received from device
+  - **BigQuery** serves as the research dataset with full **Cloud Audit Logs** enabled, providing a complete, timestamped record of all query and access events
+  - **Cloud Audit Logs** (Data Access logs retained for 2 years) provide the tamper-evident access trail required under 21 CFR Part 11 §11.10(e)
+
+  **21 CFR Part 11 compliance mapping:**
+
+  | Requirement | 21 CFR Part 11 Citation | Implementation |
+  |---|---|---|
+  | Trustworthy and reliable electronic records | §11.10(a) | AES-256 encryption at rest and in transit; bucket versioning prevents overwrite or deletion of source records |
+  | Tamper-evident audit trails (who, what, when) | §11.10(e) | Cloud Audit Logs capture all data access and modification events with actor identity and timestamp; 2-year retention |
+  | Access controls limiting data modification | §11.10(d) | Access control matrix (defined in Section 6) restricts write permissions to authorized roles only; research dataset is read-only for analysis team |
+  | Electronic signatures linked to their signatories | §11.100 | e-consent timestamps, IP address logging, and consent document hash are stored in the restricted Participant Registry; signature records retained for study duration plus 2 years |
+
+  The **Program Manager's operational responsibility** is ensuring the data pipeline from participant device to this anchor destination is continuous, lossless, and synchronized at all times. Any data integrity gaps — whether caused by sync failures, schema changes, or processing errors — must be flagged, root-caused, and resolved before data lock. Unresolved gaps at data lock constitute a protocol deviation requiring IRB notification.
+
+  ---
+
+  ## 2. Data Inventory
 
 ### Data Elements Collected
 
