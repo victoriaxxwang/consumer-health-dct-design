@@ -1,21 +1,17 @@
 # Consumer Health DCT Design: HRV Stress Detection Validation Study
 
-This repository contains a hypothetical decentralized clinical trial (DCT) protocol design for a 500-participant observational study validating a heart rate variability (HRV)-based stress detection algorithm on a consumer wearable device. It was built to demonstrate operational familiarity with FDA 2023 DCT Guidance, ICH-GCP principles, and end-to-end clinical research program management — including e-consent design, passive + active data stream orchestration, remote monitoring workflows, and health equity-driven enrollment strategy.
+  Most of my clinical research experience has been researcher-coordinated and site-based — coordinators managing participant contact, data collected in structured environments, monitoring built around physical visits. Decentralized clinical trials invert that model: participants run their own data collection from home, there is no site infrastructure to lean on, and the operational requirements shift in specific ways as a result.
 
-> **Disclaimer:** Hypothetical study design built to demonstrate operational familiarity with FDA 2023 DCT Guidance. Not affiliated with Google. All participant data, timelines, and scenarios are fictional and for portfolio purposes only.
+  This protocol works through what that infrastructure actually requires. The study validates an HRV-based stress detection algorithm on consumer wearables (Pixel Watch, Fitbit Sense 2) across 500 participants in a fully decentralized, no-site-visit design — recruitment, consent, and data collection all run through the Google Health Studies app.
 
-## Repository Contents
+  Built against FDA 2023 DCT Guidance, 21 CFR Part 11, and ICH-GCP E6(R3).
 
-| File | Description |
-|---|---|
-| `study_design.md` | Full 7-section protocol summary (overview, recruitment, DCT operations, data management, risk register, AI evaluation, timeline) |
-| `risk_register.md` | Expanded standalone risk register with likelihood, impact ratings, and detailed mitigation plans |
-| `data_management_plan.md` | End-to-end data pipeline architecture, de-identification approach, PHI handling, and query management SLAs |
+  > **Disclaimer:** Hypothetical study design built for portfolio purposes. Not affiliated with Google. All participant data, timelines, and scenarios are fictional.
 
-## What This Demonstrates
+  ## Repository Contents
 
-- **DCT operations depth**: e-consent design (FDA 2023 compliant), EMA notification strategy, remote monitoring thresholds, and dropout management protocols
-- **Health equity integration**: Diversity enrollment targets tied to an "accessible and representative" mandate with a mid-enrollment review checkpoint
-- **AI model evaluation planning**: ROC curve analysis, subgroup performance requirements, and real-world vs. benchmark gap documentation
-- **Regulatory fluency**: NSR device classification, expedited IRB pathway, and CONSORT-DCT reporting checklist alignment
-- **Program management rigor**: Risk register with likelihood/impact assessment, operational timeline with milestone tracking, and scalable data pipeline design
+  | File | Description |
+  |---|---|
+  | `study_design.md` | Full 7-section protocol: overview, recruitment and BYOD equity policy, DCT operations with risk-based monitoring (RBM), PI accountability framework, AI evaluation methodology, and project timeline |
+  | `data_management_plan.md` | End-to-end data pipeline (Pub/Sub → Dataflow → GCS → BigQuery), 21 CFR Part 11 anchor site designation, HIPAA Safe Harbor de-identification, access control matrix, and query SLAs |
+  | `risk_register.md` | Risk register with likelihood/impact ratings and documented mitigation strategies |
