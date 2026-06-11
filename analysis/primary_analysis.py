@@ -8,6 +8,7 @@ import pandas as pd
 import numpy as np
 from sklearn.metrics import roc_curve, auc
 import matplotlib.pyplot as plt
+import os
 
 # ── Load de-identified research dataset ──────────────────────────────────────
 # Columns expected: study_id, epoch_timestamp, rmssd, lf_hf_ratio, sdnn,
@@ -51,8 +52,13 @@ for subgroup in subgroups:
             continue
         g_fpr, g_tpr, _ = roc_curve(group_df["stress_event"], -group_df["rmssd"])
         g_auc = auc(g_fpr, g_tpr)
-        g_sens = g_tpr[np.argmin(np.abs(g_tpr - target_sensitivity))]
-        g_spec = 1 - g_fpr[np.argmin(np.abs(g_tpr - target_sensitivity))]
+        g_pred = (-group_df["rmssd"] >= operating_threshold).astype(int)
+        tp = ((g_pred == 1) & (group_df["stress_event"] == 1)).sum()
+        fn = ((g_pred == 0) & (group_df["stress_event"] == 1)).sum()
+        tn = ((g_pred == 0) & (group_df["stress_event"] == 0)).sum()
+        fp = ((g_pred == 1) & (group_df["stress_event"] == 0)).sum()
+        g_sens = tp / (tp + fn) if (tp + fn) > 0 else float("nan")
+        g_spec = tn / (tn + fp) if (tn + fp) > 0 else float("nan")
         flag = "  ⚠ >10pp gap vs. overall" if abs(g_sens - sensitivity) > 0.10 else ""
         print(f"  {group}: n={len(group_df)}, AUC={g_auc:.3f}, "
               f"Sens={g_sens:.3f}, Spec={g_spec:.3f}{flag}")
@@ -68,5 +74,6 @@ plt.ylabel("True Positive Rate (Sensitivity)")
 plt.title("ROC Curve — HRV Stress Detection (Primary Analysis)")
 plt.legend(loc="lower right")
 plt.tight_layout()
+os.makedirs("analysis", exist_ok=True)
 plt.savefig("analysis/roc_curve.png", dpi=150)
 plt.show()
