@@ -1,9 +1,5 @@
 # DCT Portfolio Slide Deck
 
-  **Format:** 6-slide investor-memo style presentation  
-  **Template:** Off-white (#F8F8F6) background, deep teal (#2A6B6B) accent, Inter + DM Mono typography  
-  **Live preview:** Deployed via Replit — see the main README for the link  
-
   ---
 
   ## Slide Outline
