@@ -3,7 +3,7 @@
 **Study:** Real-World Validation of HRV-Based Stress Detection on Consumer Wearables  
 **Version:** 1.0 (Hypothetical)  
 **Document Type:** Data Management Plan (DMP)  
-**Applicable Regulations:** HIPAA, 21 CFR Part 11, FDA 2023 DCT Guidance, ICH-GCP E6(R3)
+**Applicable Regulations:** HIPAA, 21 CFR Part 11, FDA's final DCT guidance (2024), ICH-GCP E6(R3)
 
 ---
 
@@ -60,9 +60,9 @@
 - **Data quality dashboard:** Updated hourly from research dataset
 
 
-## 1.5 — Electronic Anchor Site Designation (21 CFR Part 11 / FDA 2023 DCT Guidance)
+## 1.5 — Electronic Anchor Site Designation (21 CFR Part 11 / FDA's Final DCT Guidance)
 
-  The FDA 2023 DCT Guidance mandates that even fully remote, paperless trials must designate a single, auditable electronic **anchor site** — a centralized location where all electronic records, source data, and audit logs are accessible to FDA inspectors on demand. This requirement does not presuppose a physical facility; in a DCT context, the anchor site is an electronic infrastructure designation, not a geographic one.
+  FDA's final DCT guidance mandates that even fully remote, paperless trials must designate a single, auditable electronic **anchor site** — a centralized location where all electronic records, source data, and audit logs are accessible to FDA inspectors on demand. This requirement does not presuppose a physical facility; in a DCT context, the anchor site is an electronic infrastructure designation, not a geographic one.
 
   In this study, the anchor site function is fulfilled by **Google Cloud**:
 
