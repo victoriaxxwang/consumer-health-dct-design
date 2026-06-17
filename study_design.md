@@ -88,7 +88,7 @@ The study's "accessible and representative" mandate requires that the enrolled s
 
 This study uses a **Bring Your Own Device (BYOD)** model: participants are expected to own a compatible consumer wearable (Pixel Watch Gen 2/3 or Fitbit Sense 2/Versa 4) at enrollment. Ownership of a compatible device is listed as an inclusion criterion.
 
-The FDA 2023 DCT Guidance requires that sponsors using a BYOD model provide **alternative technological accommodations** so that lack of device access does not become a de facto exclusion criterion.
+FDA's final DCT guidance (2024) requires that sponsors using a BYOD model provide **alternative technological accommodations** so that lack of device access does not become a de facto exclusion criterion.
 
 **BYOD contingency plan:**
 
@@ -115,7 +115,7 @@ The FDA 2023 DCT Guidance requires that sponsors using a BYOD model provide **al
 
 ### e-Consent Design
 
-The consent process is fully app-based and designed in compliance with FDA 2023 DCT Guidance, 21 CFR Part 50, and ICH-GCP E6(R3).
+The consent process is fully app-based and designed in compliance with FDA's final DCT guidance (2024), 21 CFR Part 50, and ICH-GCP E6(R3).
 
 **Consent flow:**
 1. Participant selects "Learn More" from the in-app invitation
@@ -158,7 +158,7 @@ The consent process is fully app-based and designed in compliance with FDA 2023 
 
 This study implements RBM through a **statistical threshold-based trigger system**: rather than scheduling monitoring visits at fixed intervals, the system continuously analyzes participant data streams for patterns indicating data quality risk — completeness thresholds, sync failure patterns, and demographic enrollment drift. Monitoring action is triggered by data anomalies, not by calendar.
 
-The **Principal Investigator (PI) retains ultimate accountability** for all data and remote participants per ICH-GCP E6(R3) §4.2 and the FDA 2023 DCT Guidance — the automated RBM system does not replace investigator oversight, it protects it by surfacing anomalies that require PI-level review before they affect data integrity at scale.
+The **Principal Investigator (PI) retains ultimate accountability** for all data and remote participants per ICH-GCP E6(R3) §4.2 and FDA's final DCT guidance (2024) — the automated RBM system does not replace investigator oversight, it protects it by surfacing anomalies that require PI-level review before they affect data integrity at scale.
 
 **PI accountability workflow:**
 - **Tier 1 and Tier 2 triggers** are handled automatically with no human action required; the system documents trigger events and automated responses in the audit log
