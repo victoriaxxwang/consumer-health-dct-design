@@ -4,7 +4,7 @@
 
   This protocol works through what that infrastructure actually requires. The study validates an HRV-based stress detection algorithm on consumer wearables (Pixel Watch, Fitbit Sense 2) across 500 participants in a fully decentralized, no-site-visit design — recruitment, consent, and data collection all run through the Google Health Studies app.
 
-  Built against FDA 2023 DCT Guidance, 21 CFR Part 11, and ICH-GCP E6(R3).
+  Built against FDA's final DCT guidance (Sept. 2024), 21 CFR Part 11, and ICH-GCP E6(R3).
 
   > **Disclaimer:** Hypothetical study design built for portfolio purposes. Not affiliated with Google. All participant data, timelines, and scenarios are fictional.
 
